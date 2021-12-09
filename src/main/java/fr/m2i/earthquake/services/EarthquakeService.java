@@ -1,6 +1,7 @@
 package fr.m2i.earthquake.services;
 
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDTO;
+import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeSaveDTO;
 import fr.m2i.earthquake.entities.Earthquake;
 import fr.m2i.earthquake.repositories.EarthquakeRepository;
 import org.modelmapper.ModelMapper;
@@ -16,6 +17,7 @@ public class EarthquakeService {
     private EarthquakeRepository repository;
     private ModelMapper mapper;
 
+    //GET
     public List<EarthquakeDTO> findAll() {
         //List declaration
         List<EarthquakeDTO> earthquakes = new ArrayList<>();
@@ -37,5 +39,13 @@ public class EarthquakeService {
             earthquakeDTO = mapper.map(earthquake, EarthquakeDTO.class);
         }
         return earthquakeDTO;
+    }
+
+    //POST
+    public EarthquakeDTO save(EarthquakeSaveDTO obj) {
+        Earthquake earthquakeToSave = mapper.map(obj, Earthquake.class);
+        Earthquake earthquake = repository.save(earthquakeToSave);
+        EarthquakeDTO earthquakeSaved = mapper.map(earthquake, EarthquakeDTO.class);
+        return earthquakeSaved;
     }
 }

@@ -1,12 +1,10 @@
 package fr.m2i.earthquake.controllers;
 
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDTO;
+import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeSaveDTO;
 import fr.m2i.earthquake.services.EarthquakeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +34,11 @@ public class EarthquakeController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(earthquakeDTO);
+    }
+
+    //POST
+    @PostMapping
+    public EarthquakeDTO save(@RequestBody EarthquakeSaveDTO earthquake){
+        return earthquakeService.save(earthquake);
     }
 }
