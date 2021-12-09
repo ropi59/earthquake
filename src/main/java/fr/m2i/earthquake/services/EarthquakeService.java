@@ -1,6 +1,7 @@
 package fr.m2i.earthquake.services;
 
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDTO;
+import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDeleteDTO;
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeSaveDTO;
 import fr.m2i.earthquake.entities.Earthquake;
 import fr.m2i.earthquake.repositories.EarthquakeRepository;
@@ -57,5 +58,11 @@ public class EarthquakeService {
         //earthquakeSaved mapping in EarthquakeDTO
         EarthquakeDTO earthquakeReturned = mapper.map(earthquakeSaved, EarthquakeDTO.class);
         return earthquakeReturned;
+    }
+
+    //DELETE
+    public void deleteById(EarthquakeDeleteDTO obj){
+        Earthquake earthquakeToSave = mapper.map(obj, Earthquake.class);
+        repository.deleteById(earthquakeToSave.getId());
     }
 }

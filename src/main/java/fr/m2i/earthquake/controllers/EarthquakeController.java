@@ -1,6 +1,7 @@
 package fr.m2i.earthquake.controllers;
 
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDTO;
+import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeDeleteDTO;
 import fr.m2i.earthquake.dtos.earthquakesDTOS.EarthquakeSaveDTO;
 import fr.m2i.earthquake.services.EarthquakeService;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +50,9 @@ public class EarthquakeController {
     }
 
     //DELETE
+    @DeleteMapping
+    public ResponseEntity<Boolean> deleteById (@RequestBody EarthquakeDeleteDTO earthquakeDeleteDTO){
+        earthquakeService.deleteById(earthquakeDeleteDTO);
+        return ResponseEntity.ok(true);
+    }
 }
