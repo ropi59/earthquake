@@ -4,7 +4,7 @@ import fr.m2i.earthquake.entities.Earthquake;
 
 import java.util.List;
 
-public class LocationDTO {
+public class LocationUpdateDTO {
 
     private String id;
     private String name;
@@ -12,10 +12,10 @@ public class LocationDTO {
     private List<Earthquake> earthquakes;
 
     //Constructors
-    public LocationDTO() {
+    public LocationUpdateDTO() {
     }
 
-    public LocationDTO(String id, String name, String code, List<Earthquake> earthquakes) {
+    public LocationUpdateDTO(String id, String name, String code, List<Earthquake> earthquakes) {
         this.id = id;
         this.name = name;
         this.code = code;

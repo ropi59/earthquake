@@ -1,14 +1,18 @@
-package fr.m2i.earthquake.dtos.earthquakesDTOS;
+package fr.m2i.earthquake.dtos.locationDTOS;
 
-public class EarthquakeRelationDTO {
+import fr.m2i.earthquake.entities.Earthquake;
+
+import java.util.List;
+
+public class LocationDeleteDTO {
 
     private String id;
 
     //Constructors
-    public EarthquakeRelationDTO(){
+    public LocationDeleteDTO() {
     }
 
-    public EarthquakeRelationDTO(String id){
+    public LocationDeleteDTO(String id) {
         this.id = id;
     }
 

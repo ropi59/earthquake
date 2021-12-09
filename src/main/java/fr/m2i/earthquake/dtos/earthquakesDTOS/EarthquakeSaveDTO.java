@@ -1,6 +1,7 @@
 package fr.m2i.earthquake.dtos.earthquakesDTOS;
 
-import fr.m2i.earthquake.entities.Location;
+import fr.m2i.earthquake.dtos.locationDTOS.LocationRelationDTO;
+
 
 import java.util.Date;
 
@@ -8,14 +9,14 @@ public class EarthquakeSaveDTO {
 
     private String nom;
     private int magnitude;
-    private Location location;
+    private LocationRelationDTO location;
     private Date date;
 
     //Constructors
     public EarthquakeSaveDTO() {
     }
 
-    public EarthquakeSaveDTO(String nom, int magnitude, Location location, Date date) {
+    public EarthquakeSaveDTO(String nom, int magnitude, LocationRelationDTO location, Date date) {
         this.nom = nom;
         this.magnitude = magnitude;
         this.location = location;
@@ -39,11 +40,11 @@ public class EarthquakeSaveDTO {
         this.magnitude = magnitude;
     }
 
-    public Location getLocation() {
+    public LocationRelationDTO getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LocationRelationDTO location) {
         this.location = location;
     }
 
