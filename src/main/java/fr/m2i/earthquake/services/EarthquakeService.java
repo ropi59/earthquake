@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EarthquakeService {
@@ -23,5 +24,18 @@ public class EarthquakeService {
             earthquakes.add(mapper.map(earthquake, EarthquakeDTO.class));
         });
         return earthquakes;
+    }
+
+    public EarthquakeDTO findById(String id) {
+        EarthquakeDTO earthquakeDTO = null;
+        //getting earthquake if exist
+        Optional<Earthquake> optionalEarthquake = this.repository.findById(id);
+        //earthquake checking
+        if(optionalEarthquake.isPresent()){
+            Earthquake earthquake = optionalEarthquake.get();
+            //Entity Earthquake mapping in EarthquakeDTO
+            earthquakeDTO = mapper.map(earthquake, EarthquakeDTO.class);
+        }
+        return earthquakeDTO;
     }
 }

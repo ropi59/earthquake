@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 public class EarthquakeConfiguration {
 
     @Bean
-    public EarthquakeService locationService{
+    public EarthquakeService locationService(
             LocationRepository repository,
             ModelMapper mapper
-    }{
+    ){
         return new EarthquakeService(mapper, repository);
     }
 }

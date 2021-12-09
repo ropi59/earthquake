@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 public class LocationConfiguration {
 
     @Bean
-    public LocationService locationService{
+    public LocationService locationService(
             LocationRepository repository,
             ModelMapper mapper
-    }{
+    ){
         return new LocationService(mapper, repository);
     }
 }
