@@ -1,19 +1,19 @@
 package fr.m2i.earthquake.configurations;
 
 import fr.m2i.earthquake.repositories.LocationRepository;
-import fr.m2i.earthquake.services.LocationService;
+import fr.m2i.earthquake.services.EarthquakeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LocationConfiguration {
+public class EarthquakeConfiguration {
 
     @Bean
-    public LocationService locationService{
+    public EarthquakeService locationService{
             LocationRepository repository,
             ModelMapper mapper
     }{
-        return new LocationService(mapper, repository);
+        return new EarthquakeService(mapper, repository);
     }
 }

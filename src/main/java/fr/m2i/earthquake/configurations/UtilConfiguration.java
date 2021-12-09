@@ -1,2 +1,14 @@
-package fr.m2i.earthquake.configurations;public class UtilConfiguration {
+package fr.m2i.earthquake.configurations;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class UtilConfiguration {
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
 }
