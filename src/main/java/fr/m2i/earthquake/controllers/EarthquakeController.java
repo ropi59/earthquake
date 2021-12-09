@@ -41,4 +41,12 @@ public class EarthquakeController {
     public EarthquakeDTO save(@RequestBody EarthquakeSaveDTO earthquake){
         return earthquakeService.save(earthquake);
     }
+
+    //PUT
+    @PutMapping
+    public EarthquakeDTO update (@RequestBody EarthquakeSaveDTO earthquake){
+        return earthquakeService.update(earthquake);
+    }
+
+    //DELETE
 }

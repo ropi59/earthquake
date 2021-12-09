@@ -48,4 +48,14 @@ public class EarthquakeService {
         EarthquakeDTO earthquakeSaved = mapper.map(earthquake, EarthquakeDTO.class);
         return earthquakeSaved;
     }
+
+    //PUT
+    public EarthquakeDTO update(EarthquakeSaveDTO earthquakeDTO) {
+        //Entity mapping in DTO
+        Earthquake earthquakeToUpdate = mapper.map(earthquakeDTO, Earthquake.class);
+        Earthquake earthquakeSaved = repository.save(earthquakeToUpdate);
+        //earthquakeSaved mapping in EarthquakeDTO
+        EarthquakeDTO earthquakeReturned = mapper.map(earthquakeSaved, EarthquakeDTO.class);
+        return earthquakeReturned;
+    }
 }
